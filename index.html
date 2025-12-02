@@ -1,23 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sikkim AI Prediction Panel</title>
-<link rel="stylesheet" href="style.css">
+<title>Sikkim AI Prediction</title>
+<style>
+    body { background:black; color:white; text-align:center; font-family:Arial; }
+    input { padding:10px; border-radius:5px; width:60%; }
+    button { padding:10px 20px; border:none; background:lime; border-radius:5px; }
+</style>
 </head>
 <body>
+
 <h2>Sikkim AI Prediction Panel</h2>
 
-<div class="input-box">
-    <label>Enter Period Number:</label>
-    <input type="number" id="periodInput">
-</div>
+<input id="period" placeholder="Enter Period Number">
+<button onclick="predict()">Get Prediction</button>
 
-<button onclick="predict()">Get AI Prediction</button>
+<h3 id="result" style="margin-top:20px;"></h3>
 
-<div id="output"></div>
+<script>
+function predict(){
+    let p = document.getElementById("period").value;
 
-<script src="script.js"></script>
+    if(p === ""){
+        document.getElementById("result").innerHTML = "Enter period number!";
+        return;
+    }
+
+    // Random simple prediction model
+    let num = Math.floor(Math.random()*10);
+    let color = num%2===0 ? "RED" : "GREEN";
+    let size  = num>=5 ? "BIG" : "SMALL";
+
+    document.getElementById("result").innerHTML =
+        "Number: "+num+"<br>Color: "+color+"<br>Size: "+size;
+}
+</script>
+
 </body>
 </html>
