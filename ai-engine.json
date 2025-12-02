@@ -1,0 +1,9 @@
+{
+    "model": "simple",
+    "version": "1.0",
+    "rules": {
+        "bigsmall": "even=BIG, odd=SMALL",
+        "color": "multiple of 3 = GREEN, otherwise RED",
+        "number": "period % 10"
+    }
+}
